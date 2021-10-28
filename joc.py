@@ -8,6 +8,11 @@ t=c
 
 for i in range (t,13,1):
     
+    else:
+    print("No pots tirar ni per baix de 1 ni mes gran que 12 so samaruc")
+
+    c=int(input("Tira altra carta, vull guanyarte samarro!!! "))
+    
     if t==12:
         print("He guanyat perroo!!!")
     
@@ -19,8 +24,3 @@ for i in range (t,13,1):
     print("Has tirat el ",c," de bastos i jo el ",t," de bastos.")
 
     c=int(input("Tira la primera carta, vaig a guanyarte!!! "))
-
-else:
-    print("No pots tirar ni per baix de 1 ni mes gran que 12 so samaruc")
-
-    c=int(input("Tira altra carta, vull guanyarte samarro!!! "))
