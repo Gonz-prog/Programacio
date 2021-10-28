@@ -1,6 +1,6 @@
 #Joc que tirant una carta inferior a 12 i superior a 0 
 #retorne sempre una superior.
-#Qui arribe al 12 (rei) guanya
+#Qui arribe al 12 guanya
 
 
 c=int(input("Tira la primera carta, vaig a guanyarte!!! "))
