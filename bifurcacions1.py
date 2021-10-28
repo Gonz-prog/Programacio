@@ -8,7 +8,6 @@ b=int(input("Donal altre nombre: "))
 if a>b:
     print(a," Es mes gran que ",b)
     
-
 elif b>a:
     print(a," Es mes menut que ",b)
 
