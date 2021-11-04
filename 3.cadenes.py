@@ -4,7 +4,7 @@
 #•Si las palabras son iguales (sin tener en cuenta mayúsculas y minúsculas)
 #•O si las palabras son totalmente diferentes
 
-cadena1, cadena2=str(input("Dame la primera palabra: ")), str(input("Dame la segunda palabra: "))
+cadena1, cadena2=(input("Dame la primera palabra: ")), (input("Dame la segunda palabra: "))
 
 if cadena1 in cadena2:
     print("Son exactamente iguales")
