@@ -9,13 +9,23 @@
 #•Usuario: alumne
 #•Servidor: ieseljust.com
 
-cadena=(input("Introduce tu dirección de correo electrónico: "))
+while True:
 
-separador="@"
+    email=(input("Introduce un email\n"))
 
-if separador in cadena:
-    direccion=cadena.split("@")
-    print("Usuario: ",direccion[0])
-    print("Servidor: ",direccion[1])
-else:
-    print("Email sin @")
+    if "@" not in email or "." not in email:
+        print("Introduce un email valido, xxx@xxx.xxx")
+    else:
+        usuario=email.split("@")[0]
+        servidor=email.split("@")[1]
+        if len(usuario) == 0 or len(servidor) == 0:
+            print("Introduce un email valido, xxx@xxx.xxx")
+        else:
+            com1=servidor.split(".")[0]
+            com2=servidor.split(".")[1]
+            if len(com1) == 0 or len(com2) == 0:
+                print("Introduce un email valido, xxx@xxx.xxx")
+            else:
+                break
+print("\nUsuario: ",usuario)    
+print("Servidor: ",servidor)
