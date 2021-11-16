@@ -31,5 +31,9 @@ ordeno.sort()
     
 orded.sort()
 
-print("Todos los alumnos mayores de edad:",orded)
-print("Los dos alumnos más mayores:",ordeno[0,1],orded[0,1])
+ordeno.reverse()
+
+orded.reverse()
+
+print("Todos los alumnos mayores de edad:",ordeno[0],ordeno[1])
+print("Los dos alumnos más mayores:",ordeno[0],ordeno[1],orded[0],orded[1])
