@@ -6,29 +6,30 @@
 #•Todos los alumnos mayores de edad.
 #•Los dos alumnos más mayores
 
+nombres=[ ]
+edades=[ ]
+
+
 while True:
 
-    nombre, edad=input("Introduce un nombre o ( - ) para salir: "), int(input("Introduce la edad: "))
+    nombre=input("Introduce un nombre o ( - ) para salir: ")
 
-    if nombre == " - ":
-        
-        nombre, edad=input("Introduce un nombre o ( - ) para salir: "), int(input("Introduce la edad: "))
+    if nombre == "-":
+        break
+
+    edad=int(input("Introduce la edad: "))
+
+    nombres.append(nombre)
+
+    edades.append(edad)
+
+ordeno=nombres.copy()
     
-    listan=[ ]
+orded=edades.copy()
 
-    listan.append(nombre)
-
-    listae=[ ]
-
-    listae.append(edad)
-
-    ordeno=listan.copy()
+ordeno.sort()
     
-    orded=listae.copy()
+orded.sort()
 
-    ordeno.sort()
-    
-    orded.sort()
-
-    print("Todos los alumnos mayores de edad:",orded)
-    print("Los dos alumnos más mayores:",ordeno[0,1],orded[0,1])
+print("Todos los alumnos mayores de edad:",orded)
+print("Los dos alumnos más mayores:",ordeno[0,1],orded[0,1])
