@@ -28,10 +28,13 @@ while True:
     nombres.append(nombre)
     edades.append(edad)
 
+#Imprimimos antes del bucle para no repetir esta frase
+print("Todos los alumnos mayores de edad\n")
+
 #Bucle para recorrer la lista de las edades para extraer los mayores de edad
 for i in range(len(edades)):
     if edades[i] >= 18:
-        print("Todos los alumnos mayores de edad",nombres[i],edades[i])
+        print(nombres[i],edades[i],"\n")
     
 #Extraer los dos más mayores
 orden=edades.copy()
@@ -39,4 +42,6 @@ orden.sort(reverse=True)
 posicio0=edades.index(orden[0])
 posicio1=edades.index(orden[1],posicio0+1)
 
-print("Los dos mas mayores",nombres[posicio0],edades[posicio0],nombres[posicio1],edades[posicio1])
+#Imprimimos por pantalla
+print("Los dos mas mayores\n")
+print(nombres[posicio0],edades[posicio0],nombres[posicio1],edades[posicio1])
