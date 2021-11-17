@@ -37,6 +37,6 @@ for i in range(len(edades)):
 orden=edades.copy()
 orden.sort(reverse=True)
 posicio0=edades.index(orden[0])
-posicio1=edades.index(orden[1])
+posicio1=edades.index(orden[1],posicio0+1)
 
 print("Los dos mas mayores",nombres[posicio0],edades[posicio0],nombres[posicio1],edades[posicio1])
