@@ -40,4 +40,7 @@ for i in range(len(edades)):
 #Extraer los dos más mayores
 orden.copy(edades)
 orden.sort(reverse=True)
-posicio=orden.index()
+posicio0=edades.index(orden[0])
+posicio1=edades.index(orden[1])
+
+print("Los dos mas mayores",nombres[posicio0],edades[posicio0],nombres[posicio1],edades[posicio1])
