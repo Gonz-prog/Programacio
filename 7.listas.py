@@ -1,10 +1,6 @@
 # Programa para guardar los nombres y la edad de los 
 # alumnos de un curso. Hay que pedirlos datos de cada 
 # uno por pantalla. La lectura de datos terminará cuando 
-
-# Programa para guardar los nombres y la edad de los 
-# alumnos de un curso. Hay que pedirlos datos de cada 
-# uno por pantalla. La lectura de datos terminará cuando 
 # se introduzca como nombre un guión (-) Al terminar se 
 # mostrará los siguientes datos:
 #•Todos los alumnos mayores de edad.
@@ -38,7 +34,7 @@ for i in range(len(edades)):
         print("Todos los alumnos mayores de edad",nombres[i],edades[i])
     
 #Extraer los dos más mayores
-orden.copy(edades)
+orden=edades.copy()
 orden.sort(reverse=True)
 posicio0=edades.index(orden[0])
 posicio1=edades.index(orden[1])
