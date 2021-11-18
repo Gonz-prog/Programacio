@@ -17,17 +17,20 @@
 # la pera está presente 5 veces
 # la cereza está presente 2 veces
 # la fresa está presente 1 vez
-s2=[]
+s3=[]
 
 s0="manzana|pera|manzana|cereza|pera|manzana|pera|pera|cereza|pera|fresa"
 
 s1=list(s0.split("|"))
 
 for i in s1:
-    
+    s2=[]
     s2.append(i)
     s2.append(s1.count(i))
 
-s3=tuple(s2)
-s4=tuple(s1)
-print(s3)
+    s3.append(s2)
+
+s4=list(s3)
+s5=list(s4)
+
+print("\ncuenta =",s5,"\n")
