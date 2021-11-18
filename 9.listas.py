@@ -10,7 +10,7 @@
 #x = ('a', 'b', 'c')
 #y = ('a', 'b', 'd', 'e')
 
-#Crear tupla
+#Crear la tupla
 x=("a", "b", "c")
 
 #Convertir en lista
