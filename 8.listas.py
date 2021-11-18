@@ -11,33 +11,43 @@
 # nombres de los trabajadores y la cantidad extra que 
 # será un suplemento en su nómina.
 
+# Iniciar listas
 nombres=[]
-
 horas_extra=[]
-
 total_extra=[]
 
+# Iniciar programa
 while True:
-
+    
+    # Introducir datos
     nom=input("Nombre ('s' para salir): \n")
-
+    
+    # Condición de salida
     if nom == "s":
         break
-
+    
+    # Insertar el str en la lista nombres
     nombres.append(nom)
-
+    
+    # Iniciamos un contador para que sume las horas
     acumulador=0
-
+    
+    # Inicio del bucle
     for i in range(4):
-
+        
+        # Introduccir de las horas
         h=int(input("Horas extras semana "+str(i+1)+": \n"))
-
+        
+        # Insertar los int en la lista horas_extra
         horas_extra.append(h)
-
+        
+        # Sumar al acumulador el int
         acumulador+=h
-
+    
+    # Insertar a la lista total_exta el valor del acumulador
     total_extra.append(acumulador)
-
+   
+# Icicio del bucle que imprimirá cada nombre con sus horas extras
 for i in range(len(total_extra)):
     
     print("\nTrabajador:",nombres[i])
