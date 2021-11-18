@@ -22,7 +22,7 @@ animales = "gato, perro, canario, pescado, conejo, hámster"
 # Convertir la cadena en lista quitando el separador
 x=list(animales.split(", "))
 
-# Inicio del bucle que le dará cada palabra y su valor a la lista valores
+# Inicio del bucle que le dará cada palabra y el número de carácteres de la misma a la lista valores
 for i in x:
     valores=[]
     valores.append(i)
