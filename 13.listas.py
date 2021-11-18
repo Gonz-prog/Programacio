@@ -1,3 +1,12 @@
+# Dada la cadena
+# s="manzana|pera|manzana|cereza|pera|manzana|pera|pera
+# |cereza|pera|fresa"
+# Crea un programa que inserte los elementos que están 
+# separados por «|» en una lista.
+# Sabiendo que la lista creada sólo tiene cuatro 
+# elementos diferentes (es decir, «manzana», «pera»,
+# «cereza» y «fresa»), creará otra lista donde cada 
+# elemento sea una tupla con el nombre de la fruta y su multiplicidad (es decir, el número de veces que
 # aparece en la lista original).
 # Imprimirá el contenido de cada tupla en una línea independiente 
 # (es decir, en la primera línea: la «manzana» está presente 3 veces).
@@ -11,7 +20,8 @@
 # la fresa está presente 1 vez
 
 # Introducir lista
-añadir0=[]
+lista=[]
+nocopy=[]
 
 # Cadena
 cadena="manzana|pera|manzana|cereza|pera|manzana|pera|pera|cereza|pera|fresa"
@@ -19,19 +29,18 @@ cadena="manzana|pera|manzana|cereza|pera|manzana|pera|pera|cereza|pera|fresa"
 # Crear la lista palabras a partir de la cadena quitando el separador con .split("|")
 palabras=list(cadena.split("|"))
 
-# Inicio del bucle que añadirá i más el número de carácteres en la lista contar 
 for i in palabras:
-    contar=[]
-    contar.append(i)
-    contar.append(palabras.count(i))
-    
-    # Inicio del bucle en el rango de la lista palabras 
-    for i in range(len(palabras)):
-        
-        # Pasar a tupla
-        contar=tuple(contar)
-    añadir0.append(contar)
-    añadir=tuple(añadir0)
-    añadir1=list(añadir0)
 
-print("\ncuenta =",añadir1,"\n")
+    if i not in nocopy:
+        nocopy.append(i)
+        contar=[]
+        contar.append(i)
+        contar.append(palabras.count(i))
+        añadir=tuple(contar)
+        lista.append(añadir)
+
+
+print(lista)
+
+for i in lista:
+    print("La",i[0],"está presente",i[1],"veces")
