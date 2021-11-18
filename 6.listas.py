@@ -11,8 +11,8 @@ dias=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 # Introducir datos
 numero=int(input("Introduce el numero de un mes: "))
 
-# En el rango del int introducido recorrer
-# imprimiendo su posición en las listas
+# Con el int introducido recorrer con su valor 
+# imprimiendo el str de su posición en las listas
 for i in range(numero):
     a=1
 print("\n",meses[i],dias[i],"\n")
