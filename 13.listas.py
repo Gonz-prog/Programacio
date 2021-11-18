@@ -1,11 +1,3 @@
-# Dada la cadena
-# s="manzana|pera|manzana|cereza|pera|manzana|pera|pera|cereza|pera|fresa"
-# Crea un programa que inserte los elementos que están separados por «|» 
-# en una lista.
-# Sabiendo que la lista creada sólo tiene cuatro elementos diferentes 
-# (es decir, «manzana», «pera»,«cereza» y «fresa»), 
-# creará otra lista donde cada elemento sea una tupla con el nombre 
-# de la fruta y su multiplicidad (es decir, el número de veces que 
 # aparece en la lista original).
 # Imprimirá el contenido de cada tupla en una línea independiente 
 # (es decir, en la primera línea: la «manzana» está presente 3 veces).
@@ -17,20 +9,21 @@
 # la pera está presente 5 veces
 # la cereza está presente 2 veces
 # la fresa está presente 1 vez
-s3=[]
 
-s0="manzana|pera|manzana|cereza|pera|manzana|pera|pera|cereza|pera|fresa"
+añadir0=[]
 
-s1=list(s0.split("|"))
+cadena="manzana|pera|manzana|cereza|pera|manzana|pera|pera|cereza|pera|fresa"
 
-for i in s1:
-    s2=[]
-    s2.append(i)
-    s2.append(s1.count(i))
+palabras=list(cadena.split("|"))
 
-    s3.append(s2)
+for i in palabras:
+    contar=[]
+    contar.append(i)
+    contar.append(palabras.count(i))
 
-s4=list(s3)
-s5=list(s4)
+    for i in range(len(palabras)):
+        contar=tuple(contar)
+    añadir0.append(contar)
+    añadir1=list(añadir0)
 
-print("\ncuenta =",s5,"\n")
+print("\ncuenta =",añadir1,"\n")
