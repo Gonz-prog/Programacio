@@ -4,16 +4,17 @@
 #Itroducir cadena
 cadena="Hacemos Trekking todos los domingos que podemos"
 
-# Separar carácteres por el separador 
+# Separar palabra por el separador 
 # .split() en este caso un espacio
 # y contar al mismo tiempo las palabras 
 total=len(cadena.split())
 
 cadena=cadena.split()
 
-# Recorrer la lista imprimiendo cada palabra 
+# Recorrer el str imprimiendo cada palabra 
 for c in cadena:
     
     print(c)
 
+# Imprimir el número de palabras
 print("Hay",total,"palabras")
