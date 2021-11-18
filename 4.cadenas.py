@@ -46,7 +46,7 @@ while True:
             
             # Si ninguna comprobación da error, entonces 
             # saldrá del while para imprimir 
-            # la primera separacón que se hizo
+            # las primeras separacones que se hicieron
             else:
                 break
 print("\nUsuario: ",usuario)    
