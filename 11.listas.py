@@ -10,12 +10,17 @@
 # """
 # (2, 2, 3, 3, 4, 5, 5, 5)
 
+# Iniciar una tupla con valores dentro
 x=(3,4,2,5,5,5,2,3)
 
+# Pasar a lista
 a=list(x)
 
+# Ordenarla
 a.sort()
 
+# Pasar a tupla
 y=tuple(a)
 
+# Imprimir
 print(y)
