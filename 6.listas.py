@@ -4,11 +4,15 @@
 # Se deben utilizar listas y supondremos que febrero
 # tiene 28 días.
 
+# Crear las listas
 meses=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 dias=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
+# Introducir datos
 numero=int(input("Introduce el numero de un mes: "))
 
+# En el rango del int introducido recorrer
+# imprimiendo su posición en las listas
 for i in range(numero):
     a=1
 print("\n",meses[i],dias[i],"\n")
