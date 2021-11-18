@@ -9,6 +9,8 @@
 #•Usuario: alumne
 #•Servidor: ieseljust.com
 
+# Iniciar el bucle para que no pare de pedir datos  
+# hasta que se vea cumplido, entonces saltará al esle:
 while True:
 
     email=(input("Introduce un email\n"))
