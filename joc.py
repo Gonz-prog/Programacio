@@ -3,6 +3,11 @@ import random
 #Joc que tirant una carta inferior a 12 i superior a 0 
 #retorne sempre una superior.
 #Qui arribe al 12 guanya
+# fruits = {"apple", "banana", "cherry"}
+
+# x = fruits.pop()
+
+# print(x) 
 
 r=random.randrange(0,4)
 
