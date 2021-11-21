@@ -8,29 +8,29 @@
 # información utilizando el dni como clave y
 # los valores serán una tupla de los datos.
 
-mydict = {}
-consulta = ""
+dict = {}
+cadena = ""
 
 while True:
 
-    dni=input("\nDona'm el teu DNI[ 0 per a eixir ]: ")
+    dni=input("\nDime tu DNI[ 0 para salir ]: ")
     if dni == "0":
         break
-    nom=input("Dona'm el teu nom: ")
-    cognom=input("Dona'm el teu cognom: ")
-    edad=int(input("Dona'm la teua edad: "))
+    nombre=input("Dime tu nombre: ")
+    apellido=input("Dime tu apellido: ")
+    edad=int(input("Dime tu edad: "))
 
-    dades = [nom+" "+cognom, edad]
-    mydict[dni] = dades
+    datos = [nombre+" "+apellido, edad]
+    dict[dni] = datos
 
-print("\nDNIs guardats en la base de dades:")
-print(mydict.keys())
+print("\nDNI guardados en la base de datos:")
+print(dict.keys())
 
-while consulta not in mydict.keys():
+while cadena not in dict.keys():
 
-    consulta=input("\nDona'm un DNI i et donare les dades d'eixa persona: ")
+    cadena=input("\nDime un DNI y te digo los datos de esa persona: ")
 
-    if consulta not in mydict.keys():
-        print("\nDNI incorrecte o no es troba en la base de dades.")
-
-print(),print(mydict[consulta])
+    if cadena not in dict.keys():
+        print("\nDNI incorrecto o no se encuentra en la base de datos.")
+print()
+print(dict[cadena],"\n")
