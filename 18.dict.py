@@ -9,12 +9,12 @@
 
 dict0 = {
     "Gonzalo": "7 Abril",
-    "Seida": "13 Decembre",
-    "Gemma": "30 Agost",
+    "Seida": "13 Diciembre",
+    "Gemma": "30 Agosto",
     "Mariam": "15 Abril",
     "Nayala": "21 Octubre",
     "Ainhoa": "14 Abril",
-    "Francesc": "24 Juliol",
+    "Francesc": "24 Julio",
 }
 while True:
     nom=input("\nDime el nombre y te digo el aniversario ('s' para salir)\n")
