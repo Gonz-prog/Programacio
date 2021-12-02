@@ -1,38 +1,32 @@
 #https://www.geeksforgeeks.org/mastermind-game-using-python/
 
 from random import randrange
+from typing import Text
 
-rando =  randrange(1,7)
-
-text="MASTERMIND"
-print(
-    "\n"
-    +40*("_")
-)
-print(text.center(40, "_"))
-
-print(
-    40*("*")
-    ,"\n"
-)
+text = "MASTERMIND"
 
 def menu():
+    print(
+        "\033[1;32;40m"
+        "\n"
+        +40*("_")
+    )
+    print(text.center(40, "_"))
+
+    print(
+        40*("*")
+        +"\n"
+    )
     print("Choices Menu\n")
-    print("^(*_/_*)^")
+    print()
     print("\nOption 1: Play the game")
     print("Option 2: Chose difficulty")
     print("Option 3: History Records")
     print("Anything to exit\n")
     print()
-
     return menu
 
 menu()
 
-num = int(input("Choose a 4-8 digit number\n"))
-
-def prove():
-    if rando == num:
-        print("Crowned, You're the MASTERMIND")
-    elif num <=4 or num >=9:
-        print("Wrong number!\n")
+while True:
+    pass
