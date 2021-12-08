@@ -98,4 +98,16 @@ while True:
         else:
             scoreboard[score[0]] = difficulty+": "+str(score[1])+" turnos"
     elif seleccion == 2:                # 2 -> difficulty
-... (13 líneas restantes)
+        mode,difficulty=difficulty_choice()
+    elif seleccion == 3:                # 3 -> show settings(difficulty)
+        print_settings(mode)
+    elif seleccion == 4:                # 4 -> print scoreborad
+        if scoreboard!={}:
+            print(scoreboard)
+        else:
+            print("\nTabla de puntuaciones vacía, juega una partida primero.")
+    elif seleccion == 5:                # 5 -> exit
+        print("Aiositoo~")
+        break
+    else:
+        print("Selecciona una opción válida, por favor.")
