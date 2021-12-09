@@ -2,43 +2,49 @@ from random import randrange
 from typing import Text
 import time
 
-text = "MASTERMIND"
-text2 = "Score Board"
-records_name = []
-records_turn = []
-records_diff = []
+print("\n"*60)                      # This print enters in the game with the ideal bg color
+text = "MASTERMIND"                 # This is the str we use to show the results
+text2 = " Score Board "             # This is the str we use to show the score board
+text3 = "                 Gonzalo Requena Valero"
+text4 = "      IES Jaume II el Just Tavernes de la Valldigna"
+text5 = "                         1 DAW"
 
-def heading():
+records_name = []                   
+records_turn = []                   # Those lists we introduce here are used to store the player(s) data
+records_diff = []                   
+
+def heading():                      # This is the game's heading
     print(
         "\033[1;32;40m"
         "\n"
-        +40*("_")
+        +60*("_")
     )
-    print(text.center(40, "_"))
+    print(text.center(60, "_"))
 
     print(
-        40*("*")
-        +"\n"
-        "By Gonzalo Requena Valero 1 DAW"
+        60*("*")
+        +"\n",text4
+        +"\n",text3
+        +"\n",text5
     )    
-def menu():
+def menu():                         # The menu function
     print(
         "\033[1;32;40m"
-        +40*("_")
+        +60*("_")
     )
     print(
-        40*("*")
+        60*("*")
         +"\n"
     )
     print("Player Options\n")
     print()
-    print("\nOption 1: Play the game")
+    print("\nOption 1: Play the game\t\t->\t",difficulty[3])
     print("Option 2: Chose difficulty")
     print("Option 3: History Records")
     print("Option 4: Rules")
     print("Anything to exit\n")
     print()
-def password_gen(difficulty):
+def password_gen(difficulty):       # This is the password generator, it will give the game secret password in each lvl of difficulty
     # Difficulty = [large, value, repetition]
     # Easy -> Difficulty = [4, 5, False]
     #Middle-> Difficulty = [6, 7, False]
@@ -57,7 +63,7 @@ def password_gen(difficulty):
             password = randrange(1,difficulty[1])
             password_list.append(password)
     return password_list
-def difficulty_select():            # Create difficulty list
+def difficulty_select():            # Create difficulty list to import the value of each difficulty
     diff = 0
     while diff not in [1, 2, 3]:
         print("\nChoose a game mode!\n")
@@ -73,7 +79,7 @@ def difficulty_select():            # Create difficulty list
     else:
         difficulty = [8, 9, True,"Hard"]
     return difficulty
-def rules():
+def rules():                        # This funtion prints the rules of the game
     print(
         "\t"
         ,"  Rules  ".center(30,"*")
@@ -81,7 +87,7 @@ def rules():
         ,"\nThe object of MASTERMIND (r) is to guess a secret code.\nEach guest result in feedback narrowing down the possibilities\nof the code, and show the momentum tip.\nThe winner is the player who solves the code with fewer guesses."
     )
     time.sleep(100/40)
-def game(difficulty):
+def game(difficulty):               # This is the main function, wich recives the difficulty list to play in the asumed level. Then returns three list with the name, turn(s) and difficulty
     if difficulty[0] == 4:
         print("\nLets play!!! Easy mode on...\n")
     elif difficulty[0] == 6:
@@ -105,7 +111,7 @@ def game(difficulty):
         # Ask for it
         while len(n) != difficulty[0]:
             n = input("Guess the "+str(difficulty[0])+" digits number: ")
-            cont += 1
+            
         tries = list(n)
         
         for i in tries:
@@ -120,6 +126,7 @@ def game(difficulty):
             elif i != int(k) and int(k) not in num:
                 tips.append(" ")
         # Show results
+        cont += 1
         print("Your answer:",tries,"\n")
         
         if num != tries_int:
@@ -136,10 +143,11 @@ def game(difficulty):
     records_turn.append(str(cont))
     records_diff.append(mode)
     return records_name, records_turn, records_diff
-def score_board():
+def score_board():                  # This function shows the score board when recive the three list already mentioned
     print()
     print(text2.center(58, "%"),"\n")
-    print("Player:",records_name,"Turns:",records_turn,"Difficulty:",records_diff)
+    for (x,y,z) in zip(records_name,records_turn,records_diff):
+        print("Player:",x.ljust(10),"Turn(s):",y.ljust(5),"Difficulty:",z)
     return False
 
 heading()
