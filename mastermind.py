@@ -30,14 +30,14 @@ def menu():
         40*("*")
         +"\n"
     )
-    print("Choices Menu\n")
+    print("Player Options\n")
     print()
     print("\nOption 1: Play the game")
     print("Option 2: Chose difficulty")
     print("Option 3: History Records")
     print("Option 4: Rules")
     print("Anything to exit\n")
-    print()   
+    print()
 def password_gen(difficulty):
     # Difficulty = [large, value, repetition]
     # Easy -> Difficulty = [4, 5, False]
@@ -60,7 +60,7 @@ def password_gen(difficulty):
 def difficulty_select():            # Create difficulty list
     diff = 0
     while diff not in [1, 2, 3]:
-        print("Choose an option!\n")
+        print("\nChoose a game mode!\n")
         print("1: Easy\n")
         print("2: Middle\n")
         print("3: Hard\n")
@@ -80,7 +80,7 @@ def rules():
         ,"\n"
         ,"\nThe object of MASTERMIND (r) is to guess a secret code.\nEach guest result in feedback narrowing down the possibilities\nof the code, and show the momentum tip.\nThe winner is the player who solves the code with fewer guesses."
     )
-    time.sleep(100/50)
+    time.sleep(100/40)
 def game(difficulty):
     if difficulty[0] == 4:
         print("\nLets play!!! Easy mode on...\n")
@@ -125,7 +125,6 @@ def game(difficulty):
         if num != tries_int:
             print("IA's answer:",tips,"\n")
     print("You're crowned",text,"!!! It only took",cont,"turns\n")
-
     # Return results "[name, turns, difficulty]"
     if difficulty[0] == 4:
         mode = "Easy mode"
@@ -136,10 +135,10 @@ def game(difficulty):
     records_name.append(name)
     records_turn.append(str(cont))
     records_diff.append(mode)
-    return records_name, records_turn, records_diff 
+    return records_name, records_turn, records_diff
 def score_board():
     print()
-    print(text2.center(40, "%"),"\n")
+    print(text2.center(58, "%"),"\n")
     print("Player:",records_name,"Turns:",records_turn,"Difficulty:",records_diff)
     return False
 
