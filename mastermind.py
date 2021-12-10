@@ -1,33 +1,26 @@
 from random import randrange
 from typing import Text
 import time
-
-print("\n"*60)                      # This print enters in the game with the ideal bg color
-text = "MASTERMIND"                 # This is the str we use to show the results
-text2 = " Score Board "             # This is the str we use to show the score board
-text3 = "                 Gonzalo Requena Valero"
-text4 = "      IES Jaume II el Just Tavernes de la Valldigna"
-text5 = "                         1 DAW"
-
+import os                                                 
+text = "MASTERMIND"                                             # This is the str we use to show the results
+text2 = " Score Board "                                         # This is the str we use to show the score board
+text3 = "                 Gonzalo Requena Valero"               
+text4 = "      IES Jaume II el Just Tavernes de la Valldigna"   # There are the str to be shown with the heading
+text5 = "                         1 DAW"                                              
+select = 0
 records_name = []                   
-records_turn = []                   # Those lists we introduce here are used to store the player(s) data
+records_turn = []                                               # Those lists we introduce here are used to store the player(s) data
 records_diff = []                   
-
-def heading():                      # This is the game's heading
-    print(
-        "\033[1;32;40m"
-        "\n"
-        +60*("_")
-    )
+def heading():                                                  # This is the game's heading
+    print(60*("_"))
     print(text.center(60, "_"))
-
     print(
         60*("*")
         +"\n",text4
         +"\n",text3
         +"\n",text5
     )    
-def menu():                         # The menu function
+def menu():                                                     # The menu function
     print(
         "\033[1;32;40m"
         +60*("_")
@@ -38,13 +31,13 @@ def menu():                         # The menu function
     )
     print("Player Options\n")
     print()
-    print("\nOption 1: Play the game\t\t->\t",difficulty[3])
-    print("Option 2: Chose difficulty")
-    print("Option 3: History Records")
-    print("Option 4: Rules")
-    print("Anything to exit\n")
+    print("\n 1: Play the game\t\t->\t",difficulty[3])
+    print(" 2: Chose difficulty")
+    print(" 3: History Records")
+    print(" 4: Rules")
+    print(" 5: Exit\n")
     print()
-def password_gen(difficulty):       # This is the password generator, it will give the game secret password in each lvl of difficulty
+def password_gen(difficulty):                                   # This is the password generator, it will give the game secret password in each lvl of difficulty
     # Difficulty = [large, value, repetition]
     # Easy -> Difficulty = [4, 5, False]
     #Middle-> Difficulty = [6, 7, False]
@@ -63,7 +56,7 @@ def password_gen(difficulty):       # This is the password generator, it will gi
             password = randrange(1,difficulty[1])
             password_list.append(password)
     return password_list
-def difficulty_select():            # Create difficulty list to import the value of each difficulty
+def difficulty_select():                                        # Create difficulty list to import the value of each difficulty
     diff = 0
     while diff not in [1, 2, 3]:
         print("\nChoose a game mode!\n")
@@ -79,7 +72,7 @@ def difficulty_select():            # Create difficulty list to import the value
     else:
         difficulty = [8, 9, True,"Hard"]
     return difficulty
-def rules():                        # This funtion prints the rules of the game
+def rules():                                                    # This funtion prints the rules of the game
     print(
         "\t"
         ,"  Rules  ".center(30,"*")
@@ -87,7 +80,7 @@ def rules():                        # This funtion prints the rules of the game
         ,"\nThe object of MASTERMIND (r) is to guess a secret code.\nEach guest result in feedback narrowing down the possibilities\nof the code, and show the momentum tip.\nThe winner is the player who solves the code with fewer guesses."
     )
     time.sleep(100/40)
-def game(difficulty):               # This is the main function, wich recives the difficulty list to play in the asumed level. Then returns three list with the name, turn(s) and difficulty
+def game(difficulty):                                           # This is the main function, wich recives the difficulty list to play in the asumed level. Then returns three list with the name, turn(s) and difficulty
     if difficulty[0] == 4:
         print("\nLets play!!! Easy mode on...\n")
     elif difficulty[0] == 6:
@@ -143,41 +136,44 @@ def game(difficulty):               # This is the main function, wich recives th
     records_turn.append(str(cont))
     records_diff.append(mode)
     return records_name, records_turn, records_diff
-def score_board():                  # This function shows the score board when recive the three list already mentioned
+def score_board():                                              # This function shows the score board when recive the three list already mentioned
     print()
     print(text2.center(58, "%"),"\n")
     for (x,y,z) in zip(records_name,records_turn,records_diff):
         print("Player:",x.ljust(10),"Turn(s):",y.ljust(5),"Difficulty:",z)
     return False
-
-heading()
-
-difficulty = [4, 5, False,"Easy"]
-
-while True:
-    time.sleep(2/1)
-    menu()
-    select = int(input("What are you going to do?\n"))
-    
-    if select == 1:        # Enter the game
+difficulty = [4, 5, False,"Easy"]                               # Variable to set the difficulty to its default on easy mode
+while True:                                                     # Main Loop
+    print("\033[1;32;40m")                                      # Color introduction          
+    os.system("clear")                                          # System function used to clear the window
+    time.sleep(1)                                               # Time stops to create a retro game environment
+    heading()                                                   # Heading call               
+    menu()                                                      # Menu call
+    select = int(input("What are you going to do?\n"))          # Main loop input (Menu option chosen)
+    if select == 1:                                             # Enter the game
         time.sleep(1)
-
+        os.system("clear")
         game(difficulty)
-    elif select == 2:       # Choose difficulty
+        time.sleep(3)                                           # Gam call
+    elif select == 2:                                           # Choose difficulty
         time.sleep(1)
-
-        difficulty = difficulty_select()
-    elif select == 3:       # Show history records
+        os.system("clear")
+        difficulty = difficulty_select()                        # Difficulty select menu call
+        os.system("clear")
+    elif select == 3:                                           # Show history records
         time.sleep(1)
-
-        score_board()
+        os.system("clear")
+        score_board()                                           # Score Board call
         time.sleep(3)
-        
-    elif select == 4:       # Show rules
+        os.system("clear")
+    elif select == 4:                                           # Show rules
         time.sleep(1)
-
-        rules()
-    else:                   # Exit
+        os.system("clear")
+        rules()                                                 # Rules call
+        os.system("clear")
+    else:                                                       # Exit
+        os.system("clear") 
         print("End of the game! Bye bye",text)
         time.sleep(4)
-        break
+        os.system("clear")
+        break                                                   # Main loop breakdown
