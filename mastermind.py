@@ -2,7 +2,7 @@ from random import randrange
 from typing import Text
 import time
 import os                                                 
-text = "MASTERMIND"                                             # This is the str we use to show the results
+text = " MASTERMIND "                                           # This is the str we use to show the results
 text2 = " Score Board "                                         # This is the str we use to show the score board
 text3 = "                 Gonzalo Requena Valero"               
 text4 = "      IES Jaume II el Just Tavernes de la Valldigna"   # There are the str to be shown with the heading
