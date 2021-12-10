@@ -20,9 +20,8 @@ def heading():                                                  # This is the ga
         +"\n",text3
         +"\n",text5
     )    
-def menu():                                                     # The menu function
+def menu():                                                     # Menu function
     print(
-        "\033[1;32;40m"
         +60*("_")
     )
     print(
@@ -37,7 +36,7 @@ def menu():                                                     # The menu funct
     print(" 4: Rules")
     print(" 5: Exit\n")
     print()
-def password_gen(difficulty):                                   # This is the password generator, it will give the game secret password in each lvl of difficulty
+def password_gen(difficulty):                                   # This is the password generator, it will give each game's secret password in each level of difficulty
     # Difficulty = [large, value, repetition]
     # Easy -> Difficulty = [4, 5, False]
     #Middle-> Difficulty = [6, 7, False]
@@ -75,11 +74,11 @@ def difficulty_select():                                        # Create difficu
 def rules():                                                    # This funtion prints the rules of the game
     print(
         "\t"
-        ,"  Rules  ".center(30,"*")
+        ,"  Rules  ".center(55,"*")
         ,"\n"
         ,"\nThe object of MASTERMIND (r) is to guess a secret code.\nEach guest result in feedback narrowing down the possibilities\nof the code, and show the momentum tip.\nThe winner is the player who solves the code with fewer guesses."
     )
-    time.sleep(100/40)
+    time.sleep(10)
 def game(difficulty):                                           # This is the main function, wich recives the difficulty list to play in the asumed level. Then returns three list with the name, turn(s) and difficulty
     if difficulty[0] == 4:
         print("\nLets play!!! Easy mode on...\n")
@@ -176,4 +175,4 @@ while True:                                                     # Main Loop
         print("End of the game! Bye bye",text)
         time.sleep(4)
         os.system("clear")
-        break                                                   # Main loop breakdown
+        break                                                   # Main loop breakdow
