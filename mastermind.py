@@ -148,24 +148,26 @@ while True:                                                     # Main Loop
     time.sleep(1)                                               # Time stops to create a retro game environment
     heading()                                                   # Heading call               
     menu()                                                      # Menu call
-    select = int(input("What are you going to do?\n"))          # Main loop input (Menu option chosen)
-    if select == 1:                                             # Enter the game
+    select = (input("Chose an option\n"))
+    while select not in [1,2,3,4,5] and select.isnumeric() == False:
+        select = (input("Invalid option. Try again\n"))      # Main loop input (Menu option chosen)
+    if int(select) == 1:                                             # Enter the game
         time.sleep(1)
         os.system("clear")
         game(difficulty)
         time.sleep(3)                                           # Gam call
-    elif select == 2:                                           # Choose difficulty
+    elif int(select) == 2:                                           # Choose difficulty
         time.sleep(1)
         os.system("clear")
         difficulty = difficulty_select()                        # Difficulty select menu call
         os.system("clear")
-    elif select == 3:                                           # Show history records
+    elif int(select) == 3:                                           # Show history records
         time.sleep(1)
         os.system("clear")
         score_board()                                           # Score Board call
         time.sleep(3)
         os.system("clear")
-    elif select == 4:                                           # Show rules
+    elif int(select) == 4:                                           # Show rules
         time.sleep(1)
         os.system("clear")
         rules()                                                 # Rules call
