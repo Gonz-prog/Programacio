@@ -2,34 +2,25 @@ from random import randrange
 from typing import Text
 import time
 import os                                                 
-text = " MASTERMIND "                                           # This is the str we use to show the results
-text2 = " Score Board "                                         # This is the str we use to show the score board
-text3 = "                 Gonzalo Requena Valero"               
-text4 = "      IES Jaume II el Just Tavernes de la Valldigna"   # There are the str to be shown with the heading
-text5 = "                         1 DAW"                                              
+text = "MASTERMIND"                                             # This is the str we use to show the results
+text2 = " Score Board "                                         # This is the str we use to show the score board                                             
 select = 0
 records_name = []                   
 records_turn = []                                               # Those lists we introduce here are used to store the player(s) data
 records_diff = []                   
 def heading():                                                  # This is the game's heading
-    print(60*("_"))
-    print(text.center(60, "_"))
-    print(
-        60*("*")
-        +"\n",text4
-        +"\n",text3
-        +"\n",text5
-    )    
-def menu():                                                     # Menu function
-    print(
-        +60*("_")
-    )
-    print(
-        60*("*")
-        +"\n"
-    )
-    print("Player Options\n")
+    print("\n\n")
+    print(" ___   __       ___           __________________   _______  ______       ___  ___   __   __   __   _______")
+    print("|@@@\/@@@|     /@@@\         /@@@@@@@|@@@@@@@@@@@||@@@@@@@||@@@@@@\     |@@@\/@@@| |@@| |@@\ |@@| |@@@@@@@\ ") 
+    print("|@@\@@/@@|    /@@^@@\       |@@@(----`---|@@|----`|@@|__   |@@|_)@@|    |@@\  /@@| |@@| |@@@\|@@| |@@.--.@@|")
+    print("|@@|\/|@@|   /@@/_\@@\       \@@@\       |@@|     |@@@__|  |@@@@@@/     |@@|\/|@@| |@@| |@@.@`@@| |@@|  |@@|")
+    print("|@@|  |@@|  /@@@@@@@@@\  .----)@@@|      |@@|     |@@|____ |@@|\@@\---. |@@|  |@@| |@@| |@@|\@@@| |@@'--'@@|")
+    print("|__|  |__| /__/     \__\ |_______/       |__|     |_______|| _| `.____| |__|  |__| |__| |__| \__| |_______/")
     print()
+    print(106*("%"))
+    print("\n")
+        
+def menu():                                                     # Menu function
     print("\n 1: Play the game\t\t->\t",difficulty[3])
     print(" 2: Chose difficulty")
     print(" 3: History Records")
@@ -148,26 +139,24 @@ while True:                                                     # Main Loop
     time.sleep(1)                                               # Time stops to create a retro game environment
     heading()                                                   # Heading call               
     menu()                                                      # Menu call
-    select = (input("Chose an option\n"))
-    while select not in [1,2,3,4,5] and select.isnumeric() == False:
-        select = (input("Invalid option. Try again\n"))      # Main loop input (Menu option chosen)
-    if int(select) == 1:                                             # Enter the game
+    select = int(input("What are you going to do?\n"))          # Main loop input (Menu option chosen)
+    if select == 1:                                             # Enter the game
         time.sleep(1)
         os.system("clear")
         game(difficulty)
         time.sleep(3)                                           # Gam call
-    elif int(select) == 2:                                           # Choose difficulty
+    elif select == 2:                                           # Choose difficulty
         time.sleep(1)
         os.system("clear")
         difficulty = difficulty_select()                        # Difficulty select menu call
         os.system("clear")
-    elif int(select) == 3:                                           # Show history records
+    elif select == 3:                                           # Show history records
         time.sleep(1)
         os.system("clear")
         score_board()                                           # Score Board call
         time.sleep(3)
         os.system("clear")
-    elif int(select) == 4:                                           # Show rules
+    elif select == 4:                                           # Show rules
         time.sleep(1)
         os.system("clear")
         rules()                                                 # Rules call
@@ -177,4 +166,4 @@ while True:                                                     # Main Loop
         print("End of the game! Bye bye",text)
         time.sleep(4)
         os.system("clear")
-        break                                                   # Main loop breakdow
+        break                                                   # Main loop breakdown
