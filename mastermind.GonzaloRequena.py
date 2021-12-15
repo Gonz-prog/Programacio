@@ -1,13 +1,19 @@
 from random import randrange
 from typing import Text
 from time import sleep
-from os import system                                            
+from os import system
+import operator                                            
 
-text = "MASTERMIND"
 records_name = []                   
 records_turn = []                                               
 records_diff = []
 difficulty = [4, 5, False,"Easy"]                               # Variable to set the difficulty to its default value on easy mode
+
+def clear():
+    if operator.__name__ == 'nl':
+        system("cls")
+    else:
+        system("clear")
 
 def win():                                                      # Title to be shown when the player(s) win(s) a game
     print(" ___  ___      ______     ____  ____       __   __  ___   __      _____  ___ ")
@@ -18,8 +24,8 @@ def win():                                                      # Title to be sh
     print(" /   /      \       /    /\\  __  //\      /   /  \\     | /\  |\  |    \    \ | ")
     print("|___/        \"_____/    (__________)     |___/    \___ |(__\_|_) \___|\_____\) ")
     print()
-def heading():                                                  # This is the game's heading
-    system("clear")                                                  
+
+def heading():                                                  # This is the game's heading                                                  
     print()
     print(" ___      ___       __        ________  ___________  _______   ______   ___      ___   __    _____  ___   ________")
     print("|   \    /   |     /  \      /        )(      _    )       | /       \ |   \    /   | |  \  (\    \|   \ |        |") 
@@ -29,6 +35,7 @@ def heading():                                                  # This is the ga
     print("|.  \    /:  | /   /  \\  \  /* \   :)     \:  |   (:      *||:  __   \ |.  \    /:  | /\  |\|    \    \ ||:       :)") 
     print("|___|\__/|___|(___/    \___)_______/       \__|    \_______)|__|  \___)|___|\__/|___|(__\_|_)\___|\____\)(________/")
     print("\n")       
+
 def menu():                                                     # Menu function
     heading()
     print("\n 1: Play the game\tMode-->\t",difficulty[3])
@@ -37,6 +44,7 @@ def menu():                                                     # Menu function
     print(" 4: Rules")
     print(" 5: Exit\n")
     print()
+
 def password_gen(difficulty):                                   # This is the password generator, it will give each game's secret password in each level of difficulty
     # Difficulty = [large, value, repetition]
     # Easy -> Difficulty = [4, 5, False]
@@ -54,6 +62,7 @@ def password_gen(difficulty):                                   # This is the pa
             password = randrange(1,difficulty[1])
             password_list.append(password)
     return password_list
+
 def difficulty_select():                                        # Create difficulty list to import the value of each difficulty
     heading()
     diff = ''
@@ -71,6 +80,7 @@ def difficulty_select():                                        # Create difficu
         difficulty = [8, 9, True,"Hard"]
     clean()
     return difficulty
+
 def rules():                                                    # This funtion prints the rules of the game
     print("  _______    ____  ____   ___         _______    ________  ")
     print(" /:      \  (:  _||_ : | |:  |       /:     :|  \:       ) ") 
@@ -83,6 +93,7 @@ def rules():                                                    # This funtion p
         "\n"
         ,"\nThe object of MASTERMIND (r) is to guess a secret code.\nEach guest result in feedback narrowing down the possibilities\nof the code, and show the momentum tip.\nThe winner is the player who solves the code with fewer guesses.")
     clean()   
+
 def game(difficulty):                                           # This is the main function, wich recives the difficulty list to play in the asumed level. Then returns three list with the name, turn(s) and difficulty
     print(" ___         _______   ___________    ____    ________         _______    ___             __       ___  ___  ")
     print("|.  |       /:     .| (:     _   .)  ))_ :)  /.       )       |   __ :\  |.  |           /:.\     |:  \/.  | ")
@@ -98,8 +109,8 @@ def game(difficulty):                                           # This is the ma
         print("\nMiddle mode on...\n")
     else:
         print("\nHard mode on...\n")
-    name = input("\nEnter your user name: ")
-    print("\nHellow",name,"\n")
+    nickname = input("\nEnter your user nickname: ")
+    print("\nHellow",nickname,"\n")
     # Generate the password
     num = password_gen(difficulty)
     # while
@@ -131,19 +142,20 @@ def game(difficulty):                                           # This is the ma
         if num != tries_int:
             print("IA's answer:",tips,"\n")
     win()
-    print("\nYou're crowned",text,"!!! It only took",cont,"turns\n")
+    print("\nYou're crowned MASTERMIND!!! It only took",cont,"turns\n")
     clean()
-    # Return results "[name, turns, difficulty]"
+    # Return results "[nickname, turns, difficulty]"
     if difficulty[0] == 4:
         mode = "Easy mode"
     elif difficulty[0] == 6:
         mode = "Middle mode"
     else:
         mode = "Hard mode"
-    records_name.append(name)
+    records_name.append(nickname)
     records_turn.append(str(cont))
     records_diff.append(mode)
     return records_name, records_turn, records_diff
+
 def score_board():                                              # This function shows the score board when recive the three list already mentioned
     print("  ________    ______       ______      _______     _______       _______       ______          __        _______    ________   ")
     print(" /:       )  /: _  :\     /      \    /:      \   /.     :|     |   _  .\     /    . \        /:.\      /.      \  |:      .\ ") 
@@ -157,22 +169,25 @@ def score_board():                                              # This function 
         print("Player:",x.ljust(10),"Turn(s):",y.ljust(5),"Difficulty:",z)
     clean()
     return False
-def clean():
+
+def clean():                                                    # This function shows a message wich is an empty input, it waits until the player
     input("\nPress enter to return to the menu ")
     print("\nGoing back")
+
 while True:                                                     # Main Loop                                                      
-    print("\033[1;32;40m")                                      # Text color introduction 
-    system("clear")                                             # System function used to clear the window
+    clear()
+    print("\033[1;36;40m")                                      # Text color introduction 
+    clear()                                             # System function used to clear the window
     sleep(1)                                                    # Make the system sleep for a second to generate the retro gaming atmosphere
     menu()                                                      # Menu call
     select = (input("Choose an option\n"))                      # Main loop input (Menu option chosen)
     while select not in [1,2,3,4,5] and select.isnumeric() == False:                
-        system("clear")                                          
+        clear()                                          
         sleep(1)                                                                                                                
         menu()                                                      
         select = (input("Choose an option\n"))      
     sleep(1)
-    system("clear")
+    clear()
     if int(select) == 1:                                        # Enter the game
         game(difficulty)                                        # Game call                                                
     elif int(select) == 2:                                      # Choose difficulty
@@ -182,7 +197,7 @@ while True:                                                     # Main Loop
     elif int(select) == 4:                                      # Show rules
         rules()                                                 # Rules call
     else:                                                       # Exit 
-        print("End of the game! Bye bye",text)
+        print("End of the game! Bye bye MASTERMIND")
         sleep(4)
-        system("clear")
+        clear()
         break
