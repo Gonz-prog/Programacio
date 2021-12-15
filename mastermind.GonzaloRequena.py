@@ -10,7 +10,6 @@ records_diff = []
 difficulty = [4, 5, False,"Easy"]                               # Variable to set the difficulty to its default value on easy mode
 
 def win():                                                      # Title to be shown when the player(s) win(s) a game
-    
     print(" ___  ___      ______     ____  ____       __   __  ___   __      _____  ___ ")
     print("|:  \/:  |    /    : \   (:  _||_ : |     |:  |/  \|  :| |: \    (\:   \|:  \ ") 
     print(" \   \  /    // ____  \  |   (  ) : |     |'  /    \:  | ||  |   |.\\    \    | ") 
@@ -44,14 +43,12 @@ def password_gen(difficulty):                                   # This is the pa
     #Middle-> Difficulty = [6, 7, False]
     # Hard -> Difficulty = [8, 9, True]
     password_list = []
-
     if difficulty[2] == False:
         for i in range(difficulty[0]):
             password = randrange(1,difficulty[1])
             while password in password_list:
                 password = randrange(1,difficulty[1])
             password_list.append(password)
-
     else:
         for i in range(difficulty[0]):
             password = randrange(1,difficulty[1])
@@ -84,8 +81,7 @@ def rules():                                                    # This funtion p
     print(" |__|  \___)  (_______)  \________\  \_______) (_______/")
     print(
         "\n"
-        ,"\nThe object of MASTERMIND (r) is to guess a secret code.\nEach guest result in feedback narrowing down the possibilities\nof the code, and show the momentum tip.\nThe winner is the player who solves the code with fewer guesses."
-    )
+        ,"\nThe object of MASTERMIND (r) is to guess a secret code.\nEach guest result in feedback narrowing down the possibilities\nof the code, and show the momentum tip.\nThe winner is the player who solves the code with fewer guesses.")
     clean()   
 def game(difficulty):                                           # This is the main function, wich recives the difficulty list to play in the asumed level. Then returns three list with the name, turn(s) and difficulty
     print(" ___         _______   ___________    ____    ________         _______    ___             __       ___  ___  ")
@@ -109,7 +105,6 @@ def game(difficulty):                                           # This is the ma
     # while
     cont = 0
     tries_int = []
-    
     while num != tries_int:
         n = ""
         tips = []
@@ -118,13 +113,10 @@ def game(difficulty):                                           # This is the ma
         mode = ""
         # Ask for it
         while len(n) != difficulty[0]:
-            n = input("Guess the "+str(difficulty[0])+" digits number: ")
-            
+            n = input("Guess the "+str(difficulty[0])+" digits number: ")    
         tries = list(n)
-        
         for i in tries:
             tries_int.append(int(i))
-        
         # Compare them and show the tips
         for (i,k) in zip(num,tries_int):
             if i == int(k):
@@ -136,7 +128,6 @@ def game(difficulty):                                           # This is the ma
         # Show results
         cont += 1                                               # Count the turn as a variable
         print("Your answer:",tries,"\n")
-        
         if num != tries_int:
             print("IA's answer:",tips,"\n")
     win()
@@ -162,7 +153,6 @@ def score_board():                                              # This function 
     print(" /. \   :)  (:   _) \   \        /   |:  __   \  (:      .|     |: |_)  :)  \        /    /   /   \\  \ |:  __   \  |:       :)")
     print("(_______/    \_______)   \._____/    |__|  \___)  \_______)     (_______/    \._____/    (___/    \___)|__|  \___) (________/")
     print("\n")
-    
     for (x,y,z) in zip(records_name,records_turn,records_diff):
         print("Player:",x.ljust(10),"Turn(s):",y.ljust(5),"Difficulty:",z)
     clean()
@@ -171,7 +161,7 @@ def clean():
     input("\nPress enter to return to the menu ")
     print("\nGoing back")
 while True:                                                     # Main Loop                                                      
-    print("\033[1;32;40m")                                      # Color introduction 
+    print("\033[1;32;40m")                                      # Text color introduction 
     system("clear")                                             # System function used to clear the window
     sleep(1)                                                    # Make the system sleep for a second to generate the retro gaming atmosphere
     menu()                                                      # Menu call
@@ -184,17 +174,15 @@ while True:                                                     # Main Loop
     sleep(1)
     system("clear")
     if int(select) == 1:                                        # Enter the game
-        game(difficulty)                                        # Game call
-        sleep(1)                                                
+        game(difficulty)                                        # Game call                                                
     elif int(select) == 2:                                      # Choose difficulty
         difficulty = difficulty_select()                        # Difficulty select menu call
     elif int(select) == 3:                                      # Show history records
         score_board()                                           # Score Board call
-        sleep(1)
     elif int(select) == 4:                                      # Show rules
         rules()                                                 # Rules call
     else:                                                       # Exit 
         print("End of the game! Bye bye",text)
         sleep(4)
         system("clear")
-        break                                                   # Main loop breakdow
+        break
