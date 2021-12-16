@@ -64,7 +64,14 @@ def password_gen(difficulty):                                   # This is the pa
     return password_list
 
 def difficulty_select():                                        # Create difficulty list to import the value of each difficulty
-    heading()
+    print(" ________   __     _______   _______  __     ______   ____  ____  ___  ___________  ___  ___    ")
+    print("|:      .\ |: \   /.     :| /.     :||. \   /: _  .\ (:  _||_ . ||:  |(.     _   :)|.  \/:  |   ")
+    print("(.  ___  :)||  | (: ______)(: ______)||  | (: ( \___)|   (  ) : |||  | )__/   \\__/  \   \  /   ")
+    print("|: \   ) |||:  |  \/    |   \/    |  |:  |  \/ \     (:  |  | . )|:  |     \\_ /       \\  \/   ")
+    print("(| (___\ |||.  |  // ___)   // ___)  |.  |  //  \ _    \ \__/ //  \  |___ |.  |      /   /      ")
+    print("|:       :)/\  |\(:  (     (:  (     /\  |\(:   _) \  / \\ __ //\ ( \_|:   \\:  |     /   /     ")
+    print("(________/(__\_|_)\__/      \__/    (__\_|_)\_______)(__________) \_______)\__|    |___/        ")
+    print()
     diff = ''
     while diff not in [1, 2, 3] and diff.isnumeric() == False:
         print("\nChoose a game mode!\n")
